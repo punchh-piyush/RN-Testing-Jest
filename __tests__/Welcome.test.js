@@ -4,46 +4,46 @@ import {render, fireEvent, screen} from '@testing-library/react-native';
 describe('Welcome', () => {
   test('renders "Test App" as a text', () => {
     // Arrange
-    render(<Welcome />);
+    const {getByText} = render(<Welcome />);
 
     // Act
     // ... nothing
 
     // Assert
-    const helloWorldElement = screen.getByText('Test App');
+    const helloWorldElement = getByText('Test App');
     expect(helloWorldElement).toBeTruthy();
   });
 
   test('renders "Not Changed!" you if the button was NOT clicked', () => {
-    render(<Welcome />);
+    const {getByText} = render(<Welcome />);
 
-    const outputElement = screen.getByText('Not Changed!');
+    const outputElement = getByText('Not Changed!');
     expect(outputElement).toBeTruthy();
   });
 
   test('renders "Changed!" if the button was clicked', () => {
     // Arrange
-    render(<Welcome />);
+    const {getByText, getByTestId} = render(<Welcome />);
 
     // Act
-    const buttonElement = screen.getByRole('button');
+    const buttonElement = getByTestId('change-btn');
     fireEvent.press(buttonElement);
 
     // Assert
-    const outputElement = screen.getByText('Changed!');
+    const outputElement = getByText('Changed!');
     expect(outputElement).toBeTruthy();
   });
 
   test('does not render "Not Changed!" if the button was clicked', () => {
     // Arrange
-    render(<Welcome />);
+    const {queryByText, getByTestId} = render(<Welcome />);
 
     // Act
-    const buttonElement = screen.getByRole('button');
+    const buttonElement = getByTestId('change-btn');
     fireEvent.press(buttonElement);
 
     // Assert
-    const outputElement = screen.queryByText('Not Changed!');
+    const outputElement = queryByText('Not Changed!');
     expect(outputElement).toBeNull();
   });
 });

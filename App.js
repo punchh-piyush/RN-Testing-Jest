@@ -6,7 +6,7 @@ import Async from './src/Async';
 const App = () => {
   return (
     <SafeAreaView style={{flex:1}}>
-     {/* <Welcome/> */}
+     <Welcome/>
      <Async/>
     </SafeAreaView>  )
 }

@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, Button, SafeAreaView} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 
 const Welcome = () => {
   const [changedText, setChangedText] = useState(false);
@@ -13,12 +20,14 @@ const Welcome = () => {
       <Text style={styles.title}>Test App</Text>
       {!changedText && <Text style={styles.subTitle}>Not Changed!</Text>}
       {changedText && <Text style={styles.subTitle}>Changed!</Text>}
-      <Button
+      <TouchableOpacity
+        testID="change-btn"
         onPress={changeTextHandler}
-        title="Change Text!"
+        title="Change Text"
         style={styles.btn}
-        // color="#FFF"
-      />
+        color="#FFF">
+        <Text style={{color: 'black'}}>Change Text</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -26,10 +35,14 @@ const Welcome = () => {
 export default Welcome;
 
 const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    backgroundColor: 'purple',
+    padding: 24,
+  },
   title: {
     fontSize: 34,
     fontWeight: 'bold',
-    marginTop: 24,
     color: 'yellow',
   },
   subTitle: {
@@ -38,15 +51,12 @@ const styles = StyleSheet.create({
     marginVertical: 24,
     color: 'white',
   },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    backgroundColor: 'purple',
-  },
+
   btn: {
     height: 40,
-    width: '100%',
-    color: 'purple',
+    width: '70%',
     backgroundColor: 'yellow',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
