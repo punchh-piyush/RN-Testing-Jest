@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome renders correctly 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#333",
+      "borderBottomLeftRadius": 10,
+      "borderBottomRightRadius": 10,
+      "padding": 24,
+    }
+  }
+>
+  <RCTSafeAreaView />
+  <Text
+    style={
+      {
+        "color": "yellow",
+        "fontSize": 34,
+        "fontWeight": "bold",
+      }
+    }
+  >
+    Test App
+  </Text>
+  <Text
+    style={
+      {
+        "color": "white",
+        "fontSize": 20,
+        "fontWeight": "400",
+        "marginVertical": 24,
+      }
+    }
+  >
+    Not Changed!
+  </Text>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "yellow",
+        "height": 40,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": "70%",
+      }
+    }
+    testID="change-btn"
+  >
+    <Text
+      style={
+        {
+          "color": "black",
+        }
+      }
+    >
+      Change Text
+    </Text>
+  </View>
+</View>
+`;

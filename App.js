@@ -1,16 +1,17 @@
-import React from 'react'
-import { StyleSheet,SafeAreaView} from 'react-native'
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import Welcome from './src/Welcome';
 import Async from './src/Async';
 
 const App = () => {
   return (
-    <SafeAreaView style={{flex:1}}>
-     <Welcome/>
-     <Async/>
-    </SafeAreaView>  )
-}
+    <View style={{flex: 1}}>
+      <Welcome />
+      <Async />
+    </View>
+  );
+};
 
-export default App
+export default App;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

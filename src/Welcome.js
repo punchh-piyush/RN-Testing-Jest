@@ -17,6 +17,7 @@ const Welcome = () => {
 
   return (
     <View style={styles.container}>
+      <SafeAreaView />
       <Text style={styles.title}>Test App</Text>
       {!changedText && <Text style={styles.subTitle}>Not Changed!</Text>}
       {changedText && <Text style={styles.subTitle}>Changed!</Text>}
@@ -37,8 +38,10 @@ export default Welcome;
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: 'purple',
+    backgroundColor: '#333',
     padding: 24,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
   },
   title: {
     fontSize: 34,

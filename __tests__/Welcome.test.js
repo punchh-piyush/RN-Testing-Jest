@@ -1,7 +1,13 @@
 import Welcome from '../src/Welcome';
 import {render, fireEvent, screen} from '@testing-library/react-native';
+import {create} from 'react-test-renderer';
 
 describe('Welcome', () => {
+  test('renders correctly', () => {
+    const tree = create(<Welcome />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+
   test('renders "Test App" as a text', () => {
     // Arrange
     const {getByText} = render(<Welcome />);
