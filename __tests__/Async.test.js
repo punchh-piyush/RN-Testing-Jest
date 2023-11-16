@@ -19,9 +19,11 @@ const mockResponse = [
 
 describe('Async component', () => {
   beforeEach(() => {
-    jest.spyOn(global, 'fetch').mockResolvedValue({
-      json: jest.fn().mockResolvedValue(mockResponse),
-    });
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(mockResponse),
+      }),
+    );
   });
 
   test('renders posts if request succeeds', async () => {
