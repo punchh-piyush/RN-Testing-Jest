@@ -17,7 +17,6 @@ describe('Welcome', () => {
     fireEvent.press(buttonElement);
 
     // Assert
-    const outputElement = queryByText('Not Changed!');
     expect(mockOnPress).toHaveBeenCalled();
   });
 });
