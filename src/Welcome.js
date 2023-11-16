@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
 } from 'react-native';
+import MyButton from './MyButton';
 
 const Welcome = () => {
   const [changedText, setChangedText] = useState(false);
@@ -21,14 +22,7 @@ const Welcome = () => {
       <Text style={styles.title}>Test App</Text>
       {!changedText && <Text style={styles.subTitle}>Not Changed!</Text>}
       {changedText && <Text style={styles.subTitle}>Changed!</Text>}
-      <TouchableOpacity
-        testID="change-btn"
-        onPress={changeTextHandler}
-        title="Change Text"
-        style={styles.btn}
-        color="#FFF">
-        <Text style={{color: 'black'}}>Change Text</Text>
-      </TouchableOpacity>
+      <MyButton testID="btn-primary" onPress={changeTextHandler} />
     </View>
   );
 };
@@ -53,13 +47,5 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     marginVertical: 24,
     color: 'white',
-  },
-
-  btn: {
-    height: 40,
-    width: '70%',
-    backgroundColor: 'yellow',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });

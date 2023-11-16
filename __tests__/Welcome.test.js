@@ -20,7 +20,7 @@ describe('Welcome', () => {
     expect(helloWorldElement).toBeTruthy();
   });
 
-  test('renders "Not Changed!" you if the button was NOT clicked', () => {
+  test('renders "Not Changed!" if the button was NOT clicked', () => {
     const {getByText} = render(<Welcome />);
 
     const outputElement = getByText('Not Changed!');
@@ -32,7 +32,7 @@ describe('Welcome', () => {
     const {getByText, getByTestId} = render(<Welcome />);
 
     // Act
-    const buttonElement = getByTestId('change-btn');
+    const buttonElement = getByTestId('btn-primary');
     fireEvent.press(buttonElement);
 
     // Assert
@@ -45,7 +45,7 @@ describe('Welcome', () => {
     const {queryByText, getByTestId} = render(<Welcome />);
 
     // Act
-    const buttonElement = getByTestId('change-btn');
+    const buttonElement = getByTestId('btn-primary');
     fireEvent.press(buttonElement);
 
     // Assert
