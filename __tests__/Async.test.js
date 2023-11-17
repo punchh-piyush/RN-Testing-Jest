@@ -1,4 +1,4 @@
-import {render, screen, waitFor} from '@testing-library/react-native';
+import {render, screen, waitFor, act} from '@testing-library/react-native';
 import Async from '../src/Async';
 
 const mockResponse = [
@@ -26,18 +26,25 @@ describe('Async component', () => {
     );
   });
 
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
   it('renders loading state initially', async () => {
     const {getByText} = render(<Async />);
-    expect(getByText('Loading...')).toBeTruthy();
+    await waitFor(() => {
+      const loading = getByText('Loading...');
+      expect(loading).toBeTruthy();
+    });
   });
 
   it('renders error message when fetch fails', async () => {
     global.fetch.mockImplementationOnce(() => Promise.reject('Fetch error'));
     const {getByText} = render(<Async />);
-    await waitFor(() =>
-      expect(getByText('Something went wrong...')).toBeTruthy(),
-    );
-    jest.restoreAllMocks();
+    await waitFor(() => {
+      const errorMessage = getByText('Something went wrong...');
+      expect(errorMessage).toBeTruthy();
+    });
   });
 
   it('renders posts if request succeeds', async () => {
@@ -47,9 +54,9 @@ describe('Async component', () => {
       }),
     );
     render(<Async />);
-
-    const listItemElements = await screen.findAllByTestId('listitem');
-    expect(listItemElements).not.toHaveLength(0);
+    await waitFor(async () => {
+      const listItemElements = await screen.findAllByTestId('listitem');
+      expect(listItemElements).not.toHaveLength(0);
+    });
   });
-  jest.restoreAllMocks();
 });
